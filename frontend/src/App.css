@@ -1,0 +1,149 @@
+
+:root{
+	--dark-Mode: #010232;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ html {
+	min-height:100%;
+	/* width:100%; */
+}
+body {
+	min-height:100%;
+	background: var(--dark-Mode);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	font-family: 'Outfit';
+	font-style: normal;
+}
+
+.Shape {
+	border-radius: 50%;
+	position: absolute;
+	mix-blend-mode: normal;
+	filter: blur(100px);
+	z-index: -1;
+}
+
+.Shape1 {
+	width: 837px;
+	height: 872px;
+	left: 0vw;
+	top: 30vh;
+	background:  linear-gradient(180deg, #9BFAFF 0%, #010032 80.73%);
+}
+
+.Shape2 {
+	width: 488px;
+	height: 506px;
+	left: 70vw;
+	top: 110vh;
+	background: linear-gradient(180deg, #92539F 0%, #010032 99.48%);
+}
+
+.Shape3 {
+	width: 911px;
+	height: 952px;
+	left: 5vw;
+	top: 200vh;
+	background: linear-gradient(180deg, #FDCFFE 0%, #010032 100%);
+}
+
+.block {
+	width: 100vw;
+	background-color: #92539F;
+	z-index: 3;
+	height: 30vh;
+}
+
+.menu {
+	height: 7vh;
+}
+
+h1{
+font-family: 'roboto','Outfit';
+font-style: normal;
+font-weight: 700;
+font-size: 60px;
+line-height: 66px;
+mix-blend-mode: normal;
+height: 15vh;
+line-height: 8vh;
+}
+.top {
+	background-color: #9BFAFF;
+}
+.center {
+	background-color: antiquewhite;
+}
+.bottom {
+	background-color: yellowgreen;
+}
+.presentation {
+	font-family: 'roboto','Outfit';
+	font-style: normal;
+	left: 10vh;
+	top: 30vh;
+	text-align: center;
+	flex-basis: auto;
+	color: #E6E6E6;
+	width: 40vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 10vh;
+}
+
+.aboutme {
+font-weight: 400;
+font-size: 24px;
+line-height: 28px;
+color: #FFFFFF;
+height: 10vh;
+}
+
+
+
+
+/* .App
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: 010232;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
