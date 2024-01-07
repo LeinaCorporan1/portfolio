@@ -1,0 +1,44 @@
+form{
+	display:flex;
+	flex-direction: column;
+	border: 5px dashed red;
+	align-items:center ;
+
+}
+form>*{
+	/* border: 5px dashed rgb(191, 255, 0); */
+	height:68px;
+	width: 50vw;
+	color: #FFF;
+	font-family: 'roboto','Outfit';
+	font-style: normal;
+	font-size: 15px;
+	font-weight: 200;
+	border:0;
+
+}
+
+label{
+	font-size: 20px;
+	vertical-align: sub;
+	height:30px;
+}
+
+input,textarea {
+	background: rgba(255, 255, 255, 0.16);
+	border-bottom: #FFF solid 2px;
+	margin-bottom: 30px;
+}
+
+textarea{
+	height: 168px;
+	margin-bottom: 60px;
+}
+
+input:last-child{
+	width: 25vw;
+	border-radius: 50px;
+	border:0;
+	font-size: 30px;
+	font-weight: 400;
+}

@@ -1,0 +1,21 @@
+.dynamic-div{
+	font-family: 'roboto','Outfit';
+	width:30vw;
+	margin-bottom: 30px;
+}
+
+.tech-used{
+	font-size: 16px;
+	font-weight: 100;
+}
+
+.title{
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.description{
+	font-size: 20px;
+	font-weight: 390;
+	line-height: 20px;
+}
