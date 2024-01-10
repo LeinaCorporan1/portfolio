@@ -1,6 +1,6 @@
 import React, { useRef,useState } from 'react';
 import emailjs from '@emailjs/browser';
-import './contact_us.css'
+import './style/contact_us.css'
 
 export const ContactUs = () => {
   const form = useRef();
@@ -10,24 +10,24 @@ export const ContactUs = () => {
     message: '',
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-  };
+//   const handleInputChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormValues({ ...formValues, [name]: value });
+//   };
 
-  const handleInputFocus = (e) => {
-    const { name } = e.target;
-    if (formValues[name] === '') {
-      setFormValues({ ...formValues, [name]: e.target.placeholder });
-    }
-  };
+//   const handleInputFocus = (e) => {
+//     const { name } = e.target;
+//     if (formValues[name] === '') {
+//       setFormValues({ ...formValues, [name]: e.target.placeholder });
+//     }
+//   };
 
-  const handleInputBlur = (e) => {
-    const { name } = e.target;
-    if (formValues[name] === e.target.placeholder) {
-      setFormValues({ ...formValues, [name]: '' });
-    }
-  };
+//   const handleInputBlur = (e) => {
+//     const { name } = e.target;
+//     if (formValues[name] === e.target.placeholder) {
+//       setFormValues({ ...formValues, [name]: '' });
+//     }
+//   };
 
   const sendEmail = (e) => {
     e.preventDefault();

@@ -59,7 +59,13 @@ body>*{
 	background: linear-gradient(180deg, #FDCFFE 0%, #010032 100%);
 }
 
-
+.Shape4 {
+	width: 488px;
+	height: 506px;
+	left: 70vw;
+	top: 350vh;
+	background: linear-gradient(180deg, #FFC5AF 0%, #010032 100%);
+}
 .menu {
 	background-color: #11ffee00; /* Fully transparent */
 	height: 6vh;
@@ -85,6 +91,8 @@ body>*{
 	height: 38px;
 	color:#d9d9d9;
 	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
 }
 .right>*{
 	height: 38px;

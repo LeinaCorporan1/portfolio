@@ -1,14 +1,13 @@
 import React from 'react';
-// import logo from './logo.svg';
-import { ReactComponent as LogoIcon } from './42.svg';
-import { ReactComponent as TestIcon } from './test.svg';
-import { ReactComponent as GmailIcon } from './gmail.svg';
-import { ReactComponent as GithubIcon } from './github.svg';
-import { ReactComponent as LinkedinIcon } from './linkedin.svg';
+import { ReactComponent as LogoIcon } from './img/42.svg';
+import { ReactComponent as TestIcon } from './img/test.svg';
+import { ReactComponent as GmailIcon } from './img/gmail.svg';
+import { ReactComponent as GithubIcon } from './img/github.svg';
+import { ReactComponent as LinkedinIcon } from './img/linkedin.svg';
 import DynamicDiv from './DynamicDiv';
 import  { useState, useEffect } from 'react';
 import { ContactUs } from './contact_us';
-import './App.css';
+import './style/App.css';
 
 
 interface DivData {
@@ -51,21 +50,32 @@ function App() {
 			}
 		});
 	},[]);
+
+		const scrollToSection = (id: string) => {
+		  const element = document.getElementById(id);
+		  if (element) {
+			element.scrollIntoView({ behavior: 'smooth' });
+		  }
+		};
+	const ButtonPosition = () =>{
+
+	}
   return (
 	<>
 	<div className='move'>
 	<div className="Shape Shape1"></div>
 	<div className="Shape Shape2"></div>
 	<div className="Shape Shape3"></div>
+	<div className="Shape Shape4"></div>
 	</div>
 
 
 < div className="block">
 	<div className='menu'>
 	<div className='left'>
-	<button>competence</button>
-	<button>project</button>
-	<button>contact me</button>
+	<a onClick={() => scrollToSection('competence')}>competence</a>
+	<a onClick={() => scrollToSection('projectList')}>project</a>
+	<a onClick={() => scrollToSection('contactMe')}>contact me</a>
 	</div>
 	<div className='right'>
 <div className="lang"><button className="langEng">ENG</button>
@@ -96,15 +106,15 @@ function App() {
 	<LogoIcon />
 </div>
 	<div className='center'>
-	<h1 className='competence'>competence</h1>
+	<h1 className='competence' id='competence'>competence</h1>
 	<div className='language'>
 {pTech.map((p, index) => (
 	<p>{p.tech}</p>
 	))}
 	</div></div>
 	<div className='bottom'>
-		<h1>project</h1>
-		<div className='projectList'>
+		<h1 id='projectList'>project</h1>
+		<div className='projectList' >
 		{divData.map((div, index) =>(
 		 <div key={index} className='projectBlock'>
 		 <TestIcon />
@@ -119,7 +129,7 @@ function App() {
 		</div>
 
 	</div>
-			<h1>contact me</h1>
+			<h1 className='contactMe' id='contactMe'>contact me</h1>
 		<ContactUs />
 </div>
 	</>

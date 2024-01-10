@@ -1,4 +1,4 @@
-import './DynamicDiv.css'
+import './style/DynamicDiv.css'
 const DynamicDiv = ({ title, techUsed, description }: { title: string; techUsed: string; description: string }) => {
 	return (
 	  <div className="dynamic-div">

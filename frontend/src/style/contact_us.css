@@ -1,7 +1,6 @@
 form{
 	display:flex;
 	flex-direction: column;
-	border: 5px dashed red;
 	align-items:center ;
 
 }
