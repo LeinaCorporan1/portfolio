@@ -1,19 +1,39 @@
+:root{
+	--dark-Mode: #010232;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'roboto','Outfit';
+	font-style: normal;
+	--box-color: rgba(255, 255, 255, 0.16);
+	--text-color: #d9d9d9;
+}
+
+
 form{
 	display:flex;
 	flex-direction: column;
 	align-items:center ;
+	width: 100vw;
 
 }
 form>*{
 	/* border: 5px dashed rgb(191, 255, 0); */
 	height:68px;
-	width: 50vw;
-	color: #FFF;
+	width: 50%;
+	color: var(--text-color);
 	font-family: 'roboto','Outfit';
 	font-style: normal;
 	font-size: 15px;
 	font-weight: 200;
 	border:0;
+
+}
+
+@media (max-width: 1000px) {
+	form>*{
+		width: 90%;
+}
 
 }
 
@@ -24,8 +44,8 @@ label{
 }
 
 input,textarea {
-	background: rgba(255, 255, 255, 0.16);
-	border-bottom: #FFF solid 2px;
+	background: var(--box-color);
+	border-bottom:  var(--text-color) solid 2px;
 	margin-bottom: 30px;
 }
 
@@ -40,4 +60,5 @@ input:last-child{
 	border:0;
 	font-size: 30px;
 	font-weight: 400;
+	cursor:pointer;
 }
