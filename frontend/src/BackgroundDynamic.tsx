@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {motion} from 'framer-motion';
 type Shape = {
   id: string;
@@ -23,18 +23,7 @@ const BackgroundDynamic = ({fullHeight} :{fullHeight:number}) => {
     { id: 'shape3', posX: 5, posY:(872+506+200), heightLimit: 952, widthLimit: 911 },
     { id: 'shape4', posX: 70, posY: (fullHeight-506), heightLimit: 506, widthLimit: 488 },
 ];
-// console.log(ShapeData[3].posY);
   const [ballPosition, setBallPosition] = useState(ShapeData);
-// Empty dependency array to run the effect only once when the component mounts
-function pxToVh(px: number): number {
-	return (px / window.innerHeight) * 100;
-  }
-  // Convertir de pixels à vue en largeur (vw)
-  function pxToVw(px: number): number {
-	return (px / window.innerWidth) * 100;
-  }
-
-
 
   const onAnimationComplete = () => {
     const updateShapePosition = ballPosition.map((shape, index) => {

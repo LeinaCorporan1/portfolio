@@ -1,18 +1,16 @@
 import React from 'react';
 import SchoolIcon from './img/logo';
-import { ReactComponent as TestIcon } from './img/test.svg';
 import { ReactComponent as GmailIcon } from './img/gmail.svg';
 import { ReactComponent as GithubIcon } from './img/github.svg';
 import { ReactComponent as LinkedinIcon } from './img/linkedin.svg';
 import DynamicDiv from './DynamicDiv';
-import  { useState, useEffect, useRef } from 'react';
+import  { useState, useEffect } from 'react';
 import { ContactUs } from './contact_us';
 import './style/App.css';
 import './style/contact_us.css';
 import BackgroundDynamic from './BackgroundDynamic';
 import {motion} from 'framer-motion';
 import { MenuButton } from "./MenuButton";
-import { StringLiteral } from 'typescript';
 import inceptionPng from "./img/inception.png";
 import ftIrcPng from "./img/ft_irc.png";
 import trancendencePng from "./img/trancendence.png";
@@ -77,7 +75,7 @@ function App() {
 			contactTitle: 'Contactez-moi',
 			competenceTitle: 'Compétence',
 			projectTitle: 'Projets',
-			aboutme: "Étudiante en informatique à 42 depuis 2021, je suis passionnée par le développement web et l'intelligence artificielle. Actuellement à la recherche d'un stage, je mets ma créativité et ma passion au service de projets innovants. Intéressée par une opportunité excitante ? Contactez-moi pour discuter de notre collaboration potentielle !",
+			aboutme: "Étudiante en informatique à 42 depuis 2021, je suis passionnée par le développement web et l'intelligence artificielle. Actuellement à la recherche d'un stage, je mets ma créativité et ma passion au service de projets innovants. Intéressée par mon profil ? Contactez-moi pour discuter de notre collaboration potentielle !",
 			greeting: 'Bonjour,',
 			presentation: 'je suis Leina Corporan ',
 			contactName: "Ton Nom",
@@ -98,7 +96,7 @@ function App() {
 			competenceTitle: 'Skills',
 			projectTitle: 'Projects',
 			aboutme:
-			  "I have been a computer science student at 42 since 2021, passionate about web development and artificial intelligence. Currently seeking an internship, I apply my creativity and passion to innovative projects. Interested in an exciting opportunity? Contact me to discuss our potential collaboration!",
+			  "I have been a computer science student at 42 since 2021, passionate about web development and artificial intelligence. Currently seeking an internship, I apply my creativity and passion to innovative projects. Interested in my profil? Contact me to discuss our potential collaboration!",
 			greeting: 'Hello,',
 			presentation: 'I am Leina Corporan ',
 			contactName: 'Your Name',
@@ -239,9 +237,9 @@ function App() {
 		animate={isOpen ? show : hide}
 		>
 		<div className="menuLinks">
-	<a onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
-	<a onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
-	<a onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
+	<a href='competence' onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
+	<a href='projectList' onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
+	<a href='contactMe' onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
 	<div className="lang"><button className="langEng" onClick={() => changeLang(1)}>ENG</button>
 	<button className="langFr" onClick={() => changeLang(0)}>FR</button> </div>
 	<div className="mode"><motion.button className='modeActivator' onClick={modeChange} animate={{x: modeDark ? -34 : -2 }}  transition={{duration :0.4, ease: 'easeIn' , delay: 0}}></motion.button></div>
@@ -257,9 +255,9 @@ function App() {
 	<div className='menuContent' >
 
 	<div className='left'>
-	<a onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
-	<a onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
-	<a onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
+	<a href='competence' onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
+	<a href='projectList' onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
+	<a href='contactMe' onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
 	</div>
 	<div className='right'>
 <div className="lang"><button className="langEng" onClick={() => changeLang(1)}>ENG</button>
@@ -272,11 +270,11 @@ function App() {
 			<h1>{textInput[langChoice].greeting}<br />{textInput[langChoice].presentation}<br/>Miath</h1>
  <p className="aboutme"> {textInput[langChoice].aboutme}</p>
  <div className="links">
-	<a href="https://www.linkedin.com/in/leina-corporan-miath-4b71721ab/" target="_blank">
+	<a href="https://www.linkedin.com/in/leina-corporan-miath-4b71721ab/" rel="noreferrer" target="_blank">
 		<><LinkedinIcon /></>
 	</a>
 
-	<a href="https://github.com/LeinaCorporan1" target="_blank">
+	<a href="https://github.com/LeinaCorporan1"  rel="noreferrer" target="_blank">
 		<GithubIcon className='svg'/>
 		</a>
 	<a href={`mailto:${emailAddress}`}>
@@ -327,16 +325,16 @@ function App() {
 				<div className="jumpTo">
 				<div className='Frame'>
 				<h3>{textInput[langChoice].FooterJump}</h3>
-				<a onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
-				<a onClick={() => scrollToSection('presentation')}>Presentation</a>
-				<a onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
-				<a onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
+				<a href='presentation' onClick={() => scrollToSection('presentation')}>Presentation</a>
+				<a href='competence' onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
+				<a href='projectList' onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
+				<a href='contactMe' onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
 				</div></div>
 				<div className="FooterLinks">
 				<div className='Frame'>
 				<h3>{textInput[langChoice].FooterLinks}</h3>
-				<a href="https://www.linkedin.com/in/leina-corporan-miath-4b71721ab/" target="_blank">Linkedin</a>
-				<a href="https://github.com/LeinaCorporan1" target="_blank">Github</a>
+				<a href="https://www.linkedin.com/in/leina-corporan-miath-4b71721ab/" rel="noreferrer" target="_blank">Linkedin</a>
+				<a href="https://github.com/LeinaCorporan1" rel="noreferrer" target="_blank">Github</a>
 				<a href={`mailto:${emailAddress}`}>Email</a>
 				</div></div>
 			</div>

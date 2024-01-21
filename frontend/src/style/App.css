@@ -234,7 +234,10 @@ text-align: center;
 	flex-wrap: wrap;
 	padding: 0 50px;
 }
-
+.language{
+	display: flex;
+	flex-wrap: wrap;
+}
 .language>*{
 	flex: 1;
 }
@@ -352,16 +355,29 @@ text-align: center;
 	cursor:pointer;
 }
 
+.language{
+	display: flex;
+	flex-wrap: wrap;
+}
+.language>*{
+	flex-basis: calc(50%); /* 50% width with some space between items */
+	box-sizing: border-box;
+	/* justify-content: space-between;
+	flex: 1; */
+}
+
+h1{
+	font-size: 50px;
+}
 .smallMenu{
 	background:var(--dark-Mode);
-	top:3%;
+	top:0;
 	right: 0%;
 	height:100%;
 	position:absolute;
 	display:flex;
 	flex-direction: column;
 	width: 80%;
-	border-radius: 50px;
 }
 
 .menuLinks{
@@ -407,6 +423,7 @@ text-align: center;
 	flex-direction: column;
 	gap:100px;
 	width: 100%;
+	padding-top: 80px;
 }
 .projectBlock{
 	flex-direction: column;
@@ -417,7 +434,7 @@ text-align: center;
 .links{
 	display :flex;
 	justify-content: space-around;
-	gap: 100px;
+	gap: 40px;
 	margin-top: 30px;
 }
 .footer{
