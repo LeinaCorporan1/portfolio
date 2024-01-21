@@ -9,14 +9,21 @@ type Shape = {
   widthLimit: number;
 };
 
-const ShapeData: Shape[] = [
-  { id: 'shape1', posX: 0, posY: 30, heightLimit: 872, widthLimit: 837 },
-    { id: 'shape2', posX: 70, posY: 110, heightLimit: 506, widthLimit: 488 },
-    { id: 'shape3', posX: 5, posY: 200, heightLimit: 952, widthLimit: 911 },
-    { id: 'shape4', posX: 70, posY: 350, heightLimit: 506, widthLimit: 488 },
-];
 
-function BackgroundDynamic() {
+
+const BackgroundDynamic = ({fullHeight} :{fullHeight:number}) => {
+
+
+	// console.log("fullheight in background Dynamic  = ", fullHeight );
+	// fullHeight = document.body.scrollHeight;
+	// console.log(fullHeight);
+	const ShapeData: Shape[] = [
+  { id: 'shape1', posX: 0, posY: (200), heightLimit: 872, widthLimit: 837 },
+    { id: 'shape2', posX: 70, posY: (872), heightLimit: 506, widthLimit: 488 },
+    { id: 'shape3', posX: 5, posY:(872+506+200), heightLimit: 952, widthLimit: 911 },
+    { id: 'shape4', posX: 70, posY: (fullHeight-506), heightLimit: 506, widthLimit: 488 },
+];
+// console.log(ShapeData[3].posY);
   const [ballPosition, setBallPosition] = useState(ShapeData);
 // Empty dependency array to run the effect only once when the component mounts
 function pxToVh(px: number): number {
@@ -37,12 +44,10 @@ function pxToVh(px: number): number {
 		newPosX = ((Math.random() * 150) + 30);
 	else
 		newPosX = ((Math.random() * 40) - 30);
-	if (shape.posY <= 175)
-		newPosY = 310;
-		// newPosY = ((Math.random() * 175) + 100);
-	else
-		newPosY = ((Math.random() * 50) - 100);
-	// console.log("move");
+	if ( (shape.posY <= 0  && (shape.posY <= (fullHeight/2))) || ((shape.posY - shape.heightLimit) <= (fullHeight/2))) //va vers le haut
+		newPosY = (fullHeight - shape.heightLimit);
+	else//va vers le bas
+		newPosY = (0 - shape.heightLimit) ;
       return {
         ...shape,
         posX: newPosX,
@@ -52,17 +57,16 @@ function pxToVh(px: number): number {
 
     setBallPosition(updateShapePosition);
   };
-// const positionOne = {
-// 	left: {x: }
-// }
+
   return (
     <>
        {ballPosition.map((shape, index) => (
         <motion.div
           key={shape.id}
           className={`Shape Shape${index + 1}`}
+		  initial={{ y: `${shape.posY}px`, left: `${shape.posX}vw` }}
 		  transition={{duration :5.0, ease: 'linear' , delay: 0}}
-          animate={{ y: `${shape.posY}vh`, left: `${shape.posX}vw` }}
+          animate={{ y: `${shape.posY}px`, left: `${shape.posX}vw` }}
 		  onAnimationComplete={onAnimationComplete}
         //   style={{ top: shape.posY, left: shape.posX}}
         //   onClick={() => positionChange(index)}

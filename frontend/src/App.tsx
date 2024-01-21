@@ -13,9 +13,16 @@ import BackgroundDynamic from './BackgroundDynamic';
 import {motion} from 'framer-motion';
 import { MenuButton } from "./MenuButton";
 import { StringLiteral } from 'typescript';
+import inceptionPng from "./img/inception.png";
+import ftIrcPng from "./img/ft_irc.png";
+import trancendencePng from "./img/trancendence.png";
 
 interface PTech {
 	tech: string;
+}
+
+interface Description{
+	text: string;
 }
 
 interface TextInput{
@@ -32,12 +39,13 @@ interface TextInput{
 	contactMsg: string;
 	contactMsginput: string;
 	contactSend: string;
-	projectDescription: string;
+	projectDescription: Description[];
 	Owner: string;
 	FooterJump: string;
 	FooterLinks: string;
 }
 interface DivData {
+	img: string;
 	title: string;
 	techUsed: string;
 	description: string;
@@ -48,6 +56,21 @@ function App() {
 	const [langChoice, setLangChoice] = useState(0);
 	const [isOpen, setOpen] = React.useState(false);
 	const [colorFrom, setColorFrom] = useState("#d9d9d9");
+	const emailAddress= "leina.corporan123@gmail.com";
+	const [fullHeight, setFullHeight] = useState(0);
+
+
+	const descriptionFr: Description[] = [
+		{text: "Ce project de groupe consistait à développer un serveur IRC en C++ 98 sans la nécessité de créer un client ou de gérer la communication serveur à serveur."},
+		{text: "Ce projet avait pour but de mettre en pratique des concepts de virtualisation à travers l'utilisation de Docker, en construisant une infrastructure composée de plusieurs services dans une machine virtuelle."},
+		{text: "Ce project de groupe avait pour but de nous introduire au concept du web developement en developement un site web permettant aux utilisateurs de jouer à Pong avec d'autres utilisateurs en temps réel, incluant une interface utilisateur et un chat."},
+	];
+
+	const descriptionEng: Description[] = [
+		{text: "This group project involved developing an IRC server in C++98 without the need to create a client or manage server-to-server communication."},
+		{text: "This project aimed to apply virtualization concepts using Docker by constructing an infrastructure composed of multiple services within a virtual machine"},
+		{text: "This group project aimed to introduce us to web development concepts by creating a website that allows users to play Pong in real-time with others, featuring a user interface and a chat function."},
+	];
 
 	const textInput: TextInput[] = [
 		{
@@ -64,7 +87,7 @@ function App() {
 			contactMsg: "Message",
 			contactMsginput: "Exprimez-vous ici...",
 			contactSend: "Envoyer",
-			projectDescription: 'Description du projet ici',
+			projectDescription: descriptionFr,
 			Owner: "© 2024 leinaCorporanMiath",
 			FooterJump: "Sauter vers",
 			FooterLinks: "Liens Utiles",
@@ -85,7 +108,7 @@ function App() {
 			contactMsg: 'Message',
 			contactMsginput: 'Express yourself here...',
 			contactSend: 'Send',
-			projectDescription: 'Project description here',
+			projectDescription: descriptionEng,
 			Owner: "© 2024 leinaCorporanMiath",
 			FooterJump: "Jump to",
 			FooterLinks: "Useful links",
@@ -93,9 +116,9 @@ function App() {
 	  ];
 
 	const divData: DivData[] = [
-		{ title: 'transcendance', techUsed: "Reactjs - Nestjs - Docker - Postgres", description: textInput[langChoice].projectDescription },
-		{ title: 'inception', techUsed: 'Docker', description: textInput[langChoice].projectDescription},
-		{ title: 'ft-irc', techUsed: 'C++', description: textInput[langChoice].projectDescription },
+		{ img: trancendencePng, title: 'transcendance', techUsed: "Reactjs - Nestjs - Docker - Postgres", description: textInput[langChoice].projectDescription[0].text},
+		{ img: inceptionPng, title: 'inception', techUsed: 'Docker', description: textInput[langChoice].projectDescription[1].text},
+		{ img: ftIrcPng, title: 'ft-irc', techUsed: 'C++', description: textInput[langChoice].projectDescription[2].text},
 	  ];
 	  const pTech: PTech[] = [
 	{tech: 'C' },
@@ -122,7 +145,25 @@ function App() {
 				block.classList.add('alternate');
 			}
 		});
-	},[]);
+		console.log("scrolHeight :", document.body.scrollHeight)
+		const calculateFullHeight = () => {
+			const calculatedHeight = document.body.scrollHeight;
+			setFullHeight(calculatedHeight);
+		  };
+
+		  // Call the function once when the component mounts
+		  calculateFullHeight();
+
+		  // Attach an event listener to recalculate height when the window is resized
+		  window.addEventListener('load', calculateFullHeight);
+
+		  // Cleanup the event listener when the component is unmounted
+		  return () => {
+			window.removeEventListener('load', calculateFullHeight);
+		  };
+		}, []);
+
+
 		const scrollToSection = (id: string) => {
 		  const element = document.getElementById(id);
 		  if (element) {
@@ -178,10 +219,13 @@ function App() {
 		opacity: 0,
 		transitionEnd:{display: "none"}
 	}
+
+
   return (
 	<>
+	<div className="porfolio">
 	<div className='move'>
-		{/* <BackgroundDynamic/> */}
+	{fullHeight > 0 && <BackgroundDynamic fullHeight={fullHeight} />}
 	{/* <div className="Shape Shape1"></div>
 	<div className="Shape Shape2"></div>
 	<div className="Shape Shape3"></div>
@@ -228,14 +272,14 @@ function App() {
 			<h1>{textInput[langChoice].greeting}<br />{textInput[langChoice].presentation}<br/>Miath</h1>
  <p className="aboutme"> {textInput[langChoice].aboutme}</p>
  <div className="links">
-	<a href="www.linkedin.com/in/leina-corporan-miath-4b71721ab">
+	<a href="https://www.linkedin.com/in/leina-corporan-miath-4b71721ab/" target="_blank">
 		<><LinkedinIcon /></>
 	</a>
 
-	<a href="https://github.com/LeinaCorporan1">
+	<a href="https://github.com/LeinaCorporan1" target="_blank">
 		<GithubIcon className='svg'/>
 		</a>
-	<a href="Gmail">
+	<a href={`mailto:${emailAddress}`}>
 		 <GmailIcon />
 		  </a>
  </div>
@@ -255,7 +299,8 @@ function App() {
 		<div className='projectList' >
 		{divData.map((div, index) =>(
 		 <div key={index} className='projectBlock'>
-		 <TestIcon />
+		 {/* <TestIcon /> */}
+		 <img className='projectImg' src={div.img} alt={div.title} />
 		 <DynamicDiv
 		   key={index}
 		   title={div.title}
@@ -271,6 +316,7 @@ function App() {
 		<ContactUs
 		textInput={textInput}
 		langChoice={langChoice}
+		color={colorFrom}
 		 />
 
 		 <div className="footer">
@@ -289,13 +335,13 @@ function App() {
 				<div className="FooterLinks">
 				<div className='Frame'>
 				<h3>{textInput[langChoice].FooterLinks}</h3>
-				<a href="www.linkedin.com/in/leina-corporan-miath-4b71721ab">Linkedin</a>
-				<a href="https://github.com/LeinaCorporan1">Github</a>
-				<a href="Gmail">Email</a>
+				<a href="https://www.linkedin.com/in/leina-corporan-miath-4b71721ab/" target="_blank">Linkedin</a>
+				<a href="https://github.com/LeinaCorporan1" target="_blank">Github</a>
+				<a href={`mailto:${emailAddress}`}>Email</a>
 				</div></div>
 			</div>
 		 </div>
-</div>
+</div></div>
 	</>
   );
 }

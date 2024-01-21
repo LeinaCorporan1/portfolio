@@ -43,7 +43,7 @@ label{
 	height:30px;
 }
 
-input,textarea {
+input,textarea,.send {
 	background: var(--box-color);
 	border-bottom:  var(--text-color) solid 2px;
 	margin-bottom: 30px;
@@ -54,7 +54,7 @@ textarea{
 	margin-bottom: 60px;
 }
 
-input:last-child{
+.send{
 	width: 25vw;
 	border-radius: 50px;
 	border:0;

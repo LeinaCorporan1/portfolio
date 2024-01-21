@@ -60,6 +60,7 @@ body {
 .Shape4 {
 	width: 488px;
 	height: 506px;
+	/* top:93rem; */
 	background: var(--fourth-shape);
 }
 .menuContent {
@@ -268,6 +269,10 @@ text-align: center;
 	align-items:center;
 }
 
+.projectImg{
+	height: 276px;
+	width: 276px;
+}
 .Info{
 	align-items:flex-start;
 }
@@ -332,6 +337,10 @@ text-align: center;
 
 
 @media (max-width: 1000px) {
+	html{
+		overflow-x:hidden;
+		padding: 0;
+	}
 .MenuButton{
 	margin-left: 5rem;
 	top:5%;
@@ -370,6 +379,8 @@ text-align: center;
 }
 .body{
 		margin:10px;
+		overflow-x: hidden;
+		padding: 0;
 	}
 
 .MenuButton{
