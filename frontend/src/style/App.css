@@ -14,6 +14,7 @@
 	--second-shape:linear-gradient(180deg, #92539F 0%, var(--dark-Mode) 99.48%);
 	--third-shape:linear-gradient(180deg, #FDCFFE 0%, var(--dark-Mode) 100%);
 	--fourth-shape:linear-gradient(180deg,#FFC5AF  0%, var(--dark-Mode) 100%);
+	/* overflow: hidden; */
 }
 
 body {
@@ -104,6 +105,7 @@ body {
 	border-color: #11ffee00; /* Fully transparent */
 	width: 74px;
 	height: 38px;
+	/* overflow: hidden; */
 }
 .mode>*{
 	width: 31px;
@@ -340,14 +342,34 @@ text-align: center;
 
 
 @media (max-width: 1000px) {
+	html {
+		/* overflow-x: hidden; */
+		overflow: visible;
+		scrollbar-color: red;
+
+}
+body {
+	/* position: relative; */
+	overflow-x: hidden;
+	/* overflow-y: visible; */
+
+  }
+@media (hover: none) {
 	html{
-		/* overflow-x:hidden; */
+		overflow-x:hidden;
 		padding: 0;
 	}
 .portfolio{
 	overflow: hidden;
 
 }
+}
+	  body::-webkit-scrollbar-thumb {
+		background-color: blue;    /* color of the scroll thumb */
+		border-radius: 20px;       /* roundness of the scroll thumb */
+		border: 3px solid orange;  /* creates padding around scroll thumb */
+	  }
+
 .MenuButton{
 	margin-left: 5rem;
 	top:5%;

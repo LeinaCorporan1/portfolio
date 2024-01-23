@@ -56,6 +56,7 @@ function App() {
 	const [colorFrom, setColorFrom] = useState("#d9d9d9");
 	const emailAddress= "leina.corporan123@gmail.com";
 	const [fullHeight, setFullHeight] = useState(0);
+	const [newHeight , setNewHeight] = useState(0);
 
 
 	const descriptionFr: Description[] = [
@@ -136,6 +137,8 @@ function App() {
 	  ];
 
 	useEffect(() =>{
+		var target = document.documentElement; // You can change this to the specific element you want to observe
+
 		const projectBlock = document.querySelectorAll('.projectBlock');
 		projectBlock.forEach((block, index) =>{
 			if(index % 2)
@@ -147,15 +150,27 @@ function App() {
 		const calculateFullHeight = () => {
 			const calculatedHeight = document.body.scrollHeight;
 			setFullHeight(calculatedHeight);
+			setNewHeight(calculatedHeight);
+		  };
+		  const change = () => {
+			var targetElement = document.body;
+			let previousScrollHeight = targetElement.scrollHeight;
+			const checkScrollHeight = () => {
+			  const currentScrollHeight = targetElement.scrollHeight;
+			  if (currentScrollHeight !== previousScrollHeight) {
+				console.log('Scroll height changed:', currentScrollHeight);
+				setNewHeight(currentScrollHeight);
+				previousScrollHeight = currentScrollHeight;
+			  }
+			};
+			targetElement.addEventListener('scroll', checkScrollHeight);
 		  };
 
-		  // Call the function once when the component mounts
 		  calculateFullHeight();
 
-		  // Attach an event listener to recalculate height when the window is resized
 		  window.addEventListener('load', calculateFullHeight);
-
-		  // Cleanup the event listener when the component is unmounted
+		  change();
+		  if (newHeight)
 		  return () => {
 			window.removeEventListener('load', calculateFullHeight);
 		  };
