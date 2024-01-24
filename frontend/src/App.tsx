@@ -252,9 +252,9 @@ function App() {
 		animate={isOpen ? show : hide}
 		>
 		<div className="menuLinks">
-	<a href='competence' onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
-	<a href='projectList' onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
-	<a href='contactMe' onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
+	<a onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
+	<a onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
+	<a onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
 	<div className="lang"><button className="langEng" onClick={() => changeLang(1)}>ENG</button>
 	<button className="langFr" onClick={() => changeLang(0)}>FR</button> </div>
 	<div className="mode"><motion.button className='modeActivator' onClick={modeChange} animate={{x: modeDark ? -34 : -2 }}  transition={{duration :0.4, ease: 'easeIn' , delay: 0}}></motion.button></div>
