@@ -270,9 +270,9 @@ function App() {
 	<div className='menuContent' >
 
 	<div className='left'>
-	<a href='competence' onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
-	<a href='projectList' onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
-	<a href='contactMe' onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
+	<a onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
+	<a onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
+	<a onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
 	</div>
 	<div className='right'>
 <div className="lang"><button className="langEng" onClick={() => changeLang(1)}>ENG</button>
@@ -340,10 +340,10 @@ function App() {
 				<div className="jumpTo">
 				<div className='Frame'>
 				<h3>{textInput[langChoice].FooterJump}</h3>
-				<a href='presentation' onClick={() => scrollToSection('presentation')}>Presentation</a>
-				<a href='competence' onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
-				<a href='projectList' onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
-				<a href='contactMe' onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
+				<a onClick={() => scrollToSection('presentation')}>Presentation</a>
+				<a onClick={() => scrollToSection('competence')}>{textInput[langChoice].competenceTitle}</a>
+				<a onClick={() => scrollToSection('projectList')}>{textInput[langChoice].projectTitle}</a>
+				<a onClick={() => scrollToSection('contactMe')}>{textInput[langChoice].contactTitle}</a>
 				</div></div>
 				<div className="FooterLinks">
 				<div className='Frame'>
